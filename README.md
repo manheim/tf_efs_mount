@@ -28,7 +28,7 @@ The following arguments are supported:
 The following attributes are exported:
 
 - ``name`` - The reference_name of the file system.
-- ``file_systemd_id`` - The ID of the file system.
+- ``file_system_id`` - The ID of the file system.
 - ``mount_target_ids`` - A comma separated list of mount target ids.
 - ``mount_target_interface_ids`` - A comma separated list of network interface ids.
 - ``ec2_security_group_id`` - The ID of the security group to apply to EC2 instances.
