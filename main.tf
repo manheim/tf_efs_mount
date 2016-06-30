@@ -45,7 +45,7 @@ resource "aws_security_group" "mnt" {
   }
 }
 
-resource "aws_security_group_rule" "nfs-out" {
+resource "aws_security_group_rule" "nfs-in" {
   type                     = "ingress"
   from_port                = 2049
   to_port                  = 2049
