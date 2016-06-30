@@ -3,7 +3,7 @@ output "name" {
 }
 
 output "file_system_id" {
-  value = "${aws_efs_file_systemd.efs.id}"
+  value = "${aws_efs_file_system.efs.id}"
 }
 
 output "mount_target_ids" {
