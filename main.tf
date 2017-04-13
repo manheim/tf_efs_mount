@@ -1,8 +1,14 @@
+resource "random_id" "creation_token" {
+  byte_length   = 8
+  prefix        = "${var.name}-"
+}
+
 resource "aws_efs_file_system" "efs" {
-  reference_name = "${var.name}"
+  creation_token = "${random_id.creation_token.hex}"
 
   tags {
     Name = "${var.name}"
+    CreationToken = "${random_id.creation_token.hex}"
     terraform = "true"
   }
 }
@@ -38,7 +44,7 @@ resource "aws_security_group" "mnt" {
   name        = "${var.name}-mnt"
   description = "Allow traffic from instances using ${var.name}-ec2."
   vpc_id      = "${var.vpc_id}"
-  
+
   tags {
     Name = "allow_nfs_in_from_${var.name}-ec2"
     terraform = "true"
