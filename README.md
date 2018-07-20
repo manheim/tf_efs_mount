@@ -76,3 +76,13 @@ resource "aws_instance" "example-instance-with-efs" {
 }
 
 ```
+
+Please note that you need to take care of adding some EFS/NFS capabilities to your instance first. For example, when running this on ubuntu, you can add the following lines to the start of your provisioner-script:
+```hcl-terraform
+    inline = [
+      # Install dependencies required for ubuntu
+      "sudo apt-get update",
+      "sudo apt-get install -y nfs-common",
+      # [...]
+    ]
+```

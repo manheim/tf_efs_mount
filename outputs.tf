@@ -7,7 +7,7 @@ output "file_system_id" {
 }
 
 output "file_system_dns_name" {
-  value = "${aws_efs_file_system.efs.id}"
+  value = "${aws_efs_file_system.efs.dns_name}"
 }
 
 output "mount_target_ids" {
