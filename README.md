@@ -67,7 +67,7 @@ resource "aws_instance" "example-instance-with-efs" {
       # create a directory to mount our efs volume to
       "sudo mkdir -p /mnt/efs",
       # mount the efs volume
-      "sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport ${module.efs_mount.file_system_dns_name}:/ efs",
+      "sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport ${module.efs_mount.file_system_dns_name}:/ /mnt/efs",
       # create fstab entry to ensure automount on reboots
       # https://docs.aws.amazon.com/efs/latest/ug/mount-fs-auto-mount-onreboot.html#mount-fs-auto-mount-on-creation
       "sudo su -c \"echo '${module.efs_mount.file_system_dns_name}:/ /mnt/efs nfs defaults,vers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport 0 0' >> /etc/fstab\"" #create fstab entry to ensure automount on reboots
