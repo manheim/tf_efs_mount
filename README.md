@@ -38,7 +38,7 @@ The following attributes are exported:
 
 You can allow access to the EFS and mount it in an EC2 instance like this:
 
-```hcl-terraform
+```hcl
 resource "aws_key_pair" "user-ssh-key" {
   key_name   = "your-key-name"
   public_key = "your-public-ssh-key"
@@ -78,7 +78,7 @@ resource "aws_instance" "example-instance-with-efs" {
 ```
 
 Please note that you need to take care of adding some EFS/NFS capabilities to your instance first. For example, when running this on ubuntu, you can add the following lines to the start of your provisioner-script:
-```hcl-terraform
+```hcl
     inline = [
       # Install dependencies required for ubuntu
       "sudo apt-get update",
